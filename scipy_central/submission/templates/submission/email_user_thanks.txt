@@ -1,0 +1,6 @@
+{{user.username}}
+
+Thanks for contribution to IFB's publication with the title: "{{item.title}}"
+http://{{site.domain}}{{item.get_absolute_url}}
+
+IFB Journal team.

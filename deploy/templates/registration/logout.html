@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Sign in{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+	<div class="lead">
+	<p>You have been Signed out</p>
+	
+	<p><a href="{% url "auth_login" %}">Sign in again</a> or go to the <a href="{% url "spc-main-page" %}">home page</a></p>
+	</div>
+</div>
+{% endblock %}

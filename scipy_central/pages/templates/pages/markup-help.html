@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}Help with markup{% endblock %}
+
+{% block content %}
+<h3 class="underline">HELP WITH MARKUP</h3>
+<p>We use <a href="http://sphinx.pocoo.org/latest/rest.html">reStructuredText</a>. The &nbsp;<tt> ` </tt>&nbsp; character is the key next to &nbsp;<tt> 1 </tt>&nbsp; and above &nbsp;<tt> Tab </tt>&nbsp; on many keyboards.</p>
+
+<br>
+
+<h4><a href="#mathematics">MATHEMATICS</a></h4>
+<p>Being a website for scientific resources, we expect good mathematics. Use <a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics#Greek_letters">LaTeX notation</a>.</p>
+
+<table class="table table-hover">
+	<tr>
+		<td>This is inline math: \(z = x^2 + y^2\)</td>
+		<td><tt>This is inline math: </tt><tt>\( </tt><tt>z = x^2 + y^2</tt><tt> \)</tt></td>
+	</tr>
+
+	<tr>
+		<td>and \(a = \sqrt{b}\) is an alternative way.</td>
+		<td><tt>and :math:`a = \sqrt{b}` also gets you math.</tt></td>
+	</tr>
+
+	<tr>
+		<td>
+			Longer mathematical statements:<div class="math">\[\begin{split}f_1(x, y) &amp;= y - x^0\\f_2(x, y) &amp;= y - x - 1 = 0\end{split}\]</div>
+		</td>
+		<td>
+<pre>Longer mathematical statements:
+
+.. math::
+
+    f_1(x, y) &= y - x^2 = 0 \\
+    f_2(x, y) &= y - x - 1 = 0
+</pre>
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<h4><a href="#styling">BASIC TEXT STYLING</a></h4>
+<table class="table table-hover">
+	<tr>
+		<td><i>Text in italics</i></td>
+		<td><tt>*Text in italics*</tt></td>
+	</tr>
+
+	<tr>
+		<td><b>Bold text</b></td>
+		<td><tt>**Bold text**</tt></td>
+	</tr>
+
+	<tr>
+		<td>Bold and italics cannot be combined - <i>sorry</i></td>
+		<td></td>
+</table>
+
+<br>
+
+<h4><a href="#bullet-points">BULLET POINTS</a></h4>
+<table class="table table-hover">
+	<tr>
+		<td>
+<ul>
+<li>Start each line</li>
+<li>with an asterisk.<ul>
+<li>Indent asterisks to get deeper</li>
+<li>and deeper levels.</li>
+</ul>
+</li>
+<li>Line breaks
+do not break levels.<ul>
+<li>But empty lines with indents</li>
+<li>will start new bullet points</li>
+<li>Blank lines are optional</li>
+</ul>
+</li>
+</ul>
+		</td>
+		<td>
+<pre>
+*   Start each line
+*   with an asterisk.
+
+    * Indent asterisks to get deeper
+    * and deeper levels.
+
+*   Line breaks
+    do not break levels.
+
+    -   But empty lines with indents
+    -   will start new bullet points
+
+    -   Blank lines are optional.
+</pre>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+<ol class="arabic simple">
+<li>Start each line</li>
+<li>with a number sign and a period.<ol class="arabic">
+<li>Use indents, as before,</li>
+<li>to nest the level<ul>
+<li>And they may be combined.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+		</td>
+		<td>
+<pre>
+#.  Start each line
+#.  with a number sign and a period.
+
+    #.  Use indents, as before,
+    #.  to nest the level
+
+        - And they may be combined.
+</pre>
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<h4><a href="#monospaced-text">MONOSPACED TEXT</a></h4>
+<table class="table table-hover">
+	<tr>
+		<td>Use backticks to write <tt>monospaced text</tt></td>
+		<td><tt>Use backticks to write ``monospaced text``</tt></td>
+	</tr>
+</table>
+
+<br>
+
+<h4><a href="#images">IMAGES</a></h4>
+<p>You will be given a file name after uploading an image (see the bottom of the page where you create new submissions).</p>
+<table class="table table-hover">
+	<tr>
+		<td><img src="{{STATIC_URL}}internet-web-browser.png"></td>
+		<td>Full size image <p><tt>:image:`internet-web-browser.png`</tt></td>
+	</tr>
+
+	<tr>
+		<td><img src="{{STATIC_URL}}internet-web-browser.png" width="64"></td>
+		<td>Reduce the image size <p><tt>:image:`internet-web-browser.png;25`</tt></td>
+	</tr>
+</table>
+
+<br>
+
+<h4><a href="#hyperlinks">EXTERNAL HYPERLINKS</a></h4>
+<table class="table table-hover">
+	<tr>
+		<td>An <a href="http://example.com">inline</a> hyperlink</td>
+		<td><tt>An `inline &lt;http://example.com&gt;`_ hyperlink</tt></td>
+	</tr>
+
+	<tr>
+		<td>Auto-converted when detected: <a href="http://example.com">http://example.com</a></td>
+		<td><tt>Auto-converted when detected: http://example.com</tt></tt></td>
+	</tr>
+</table>
+
+<br>
+
+<h4><a href="#internal-links">INTERNAL HYPERLINKS</a></h4>
+<table class="table table-hover">
+	<tr>
+		<td>Link to a submission <a href="http://scipy-central.org/item/13">item #13</a></td>
+		<td><tt>Link to a submission :id:`13`</tt> <small>(use the ID number shown on the submission's page)</small></td>
+	</tr>
+
+	<tr>
+		<td>A submission <a href="http://scipy-central.org/item/13">with inline text</a> instead</td>
+		<td><tt>A submission :id:`with inline text <13>` instead</tt></td>
+	</tr>
+
+	<tr>
+		<td>Tag links: <a href="http://scipy-central.org/item/tag/gpu">tag: gpu</a> or <a href="http://scipy-central.org/item/tag/cpu">inline form</a></td>
+		<td><tt>Tag links: :tag:`gpu` or :tag:`inline form &lt;cpu&gt;`</tt></td>
+	</tr>
+
+	<tr>
+		<td>Link to a user's profile <a href="http://scipy-central.org/user/3">user #3</a></td>
+		<td><tt>Link to a user's profile :user:`3`</tt> <small>(use ID shown on the user's page)</small></td>
+	</tr>
+</table>
+
+{% endblock %}
+
+
+

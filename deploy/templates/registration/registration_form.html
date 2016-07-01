@@ -1,0 +1,53 @@
+<!--url: registration_register -->
+{% extends "base.html" %}
+
+{% block title %}Create a new account{% endblock %}
+
+{% block content %}
+{% load widget_tweaks %}
+<div class="row-fluid">
+	<div class="span8">
+		{% include "registration/signin_header.html" %}
+	</div><!--/span8-->
+	
+	<div class="span4">
+		<h3 class="underline">Create a new account</h3>
+		<form class="form" action="" method="post">
+		{% csrf_token %}
+			{% if form.non_field_errors %}
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				{% for error in form.non_field_errors %}
+				 {{error}}
+				{% endfor %}
+			</div>
+			
+			{% else %}
+				{% if form.errors %}
+				<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<p><b>Some errors were found</b>. Please see fields with a coloured background</p>
+				</div>
+				{% endif %}
+			{% endif %}
+			
+			{% for field in form %}
+				<label>{{field.label|safe}}</label>
+				{% if field.errors %}
+				<div class="alert alert-error">
+					{% for error in field.errors %}<small><i>{{ error|escape }}</i></small>{% endfor %}
+				</div>
+				{% endif %}
+				{{field|add_class:"span12"|safe}}
+			{% endfor %}
+			
+			{% if next %}
+				<input type="hidden" name="next" value="{{next}}">
+			{% endif %}
+			
+			<button class="btn btn-primary" type="submit" name="submit">Send me an activation email</button>
+		</form><!--/form-->
+	</div><!--/signin span4-->
+	
+</div><!--/row-fluid-->
+{% endblock %}

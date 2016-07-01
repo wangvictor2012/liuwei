@@ -1,0 +1,17 @@
+{% load static %}
+
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/spc-bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/spc-extend.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/pygments.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSS}}">
+	<script type="text/javascript" src="{{JQUERY_URL}}"></script>
+	<script type="text/javascript" src="{{JQUERYUI_URL}}"></script>
+
+{% block control_user_is_logged %}
+		{% if not a  %}
+			{% include "store/buy.html" %}
+		{% else %}
+			{% include "registration/login.html" %}
+		{% endif %}
+{% endblock %}
+

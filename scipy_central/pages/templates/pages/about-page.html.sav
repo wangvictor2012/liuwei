@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}About SciPy Central{% endblock %}
+
+{% block content %}
+
+<div class="row-fluid">
+<div class="span12">
+	<h3 class="underline">About</h3>
+	<p>ABgenomica Journal is a collection of articles and their demonstrations,for <i>Biological analysis</i> with <a href="http://abgenomica.com">ABgenomica</a> </p>
+
+	<p>ABgenomica is a bioinformatics services and software company specializing in genome content management, next-generation sequence analysis, and visualization for DNA sequencing centers and researchers. ABgenomica’ services are provided through a single, unified system that scales to meet its clients’ unique academic or commercial needs. This unified system includes on-demand infrastructure for computation and storage, quality control, bioinformatics support, and many other features.</p>
+
+	<p>Due to the complexity and large storage requirements of DNA data management and sequence analysis, ABgenomica had to carefully examine its cloud service provider options in order to choose a service that could meet its strenuous demands. The company ultimately chose Amazon Web Services (AWS) in Europe region because it allows ABgenomica the flexibility to create its own software stack and the scalability to store more than 60 terabytes of data, with the potential to grow into petabytes of data storage.</p>
+
+	<p>If you'd like to <b>suggest improvements</b> to the site (anything!) please contacte us. We'll do our best to fix any bugs right away, or to consider adding new features. If you prefer to contact us by email, please write us at <a href="mailto:team@abgenomica.com">team@abgenomica.com</a>.</p>
+</div>
+</div><!--/row fluid-->
+{% endblock %}
+
+
+

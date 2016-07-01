@@ -1,0 +1,10 @@
+
+
+{% block control_user_is_logged %}
+		{% if not a  %}
+			{% include "store/buy.html" %}
+		{% else %}
+			{% include "registration/login.html" %}
+		{% endif %}
+{% endblock %}
+

@@ -1,0 +1,41 @@
+{# The ``entry`` object must be from the ``submission.Revision`` class #}
+{% if entry %}
+{% load comments %}
+
+<li class="media">
+	<a class="pull-left" href="#">
+		{% if entry.entry.sub_type == 'snippet' %}
+		<img src="{{STATIC_URL}}single-file-list-icon-tiny.png">
+		{% endif %}
+		{% if entry.entry.sub_type == 'package' %}
+		<img src="{{STATIC_URL}}multiple-file-list-icon-tiny.png">
+		{% endif %}
+		{% if entry.entry.sub_type == 'link' %}
+		<img src="{{STATIC_URL}}external-link-list-icon-tiny.png">
+		{% endif %}
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading">
+			<a href="{{entry.get_absolute_url}}">{{ entry.title}}</a>
+		</h4>
+		<p class="media-description">{{ entry.description_html|truncatewords_html:"30"|safe|removetags:"p li ul ol img a math h1 h2 h3 h4 h5 h6"}}</p>
+
+		<ul class="inline tags pull-left">
+		{% for tag in entry.tags.all %}
+			<li class="btn btn-mini"><a href="{% url "spc-show-items" what_view="tag" extra_info=tag %}">{{tag.name}}</a></li>
+		{% endfor %}
+		</ul>
+
+		<ul class="inline pull-right muted">
+			{% get_comment_count for entry as comment_count %}
+			<li><small><a href="{{entry.get_absolute_url}}#spc-comment-list"><i class="icon-envelope"></i> {{comment_count}}</a></small></li>
+			{% if entry.short_human_revision_string %}
+				<li><small>{{entry.short_human_revision_string|safe}}</small><li>
+			{% endif %}
+			<li><small>by <a href="{% url "spc-user-profile" slug=entry.created_by.profile.slug %}">{{entry.created_by.username}}</a></small></li>
+			<li><small>on {{ entry.date_created|date:"d F Y"}}</small></li>
+		</ul>
+	</div>
+</li>
+<hr> <!--helps to create some space between each submission, draw a line "easily"-->
+{% endif %}

@@ -1,0 +1,12 @@
+{% extends "page-base.html" %}
+
+{% block title %}{{page_title}}{% if extra_info %} "{{extra_info}}" {% endif %}{% endblock %}
+
+{% block pageContent %}
+<div class="row-fluid">
+	<div class="SearchResult span12">
+		<h3 class="underline">{{page_title|title}} {% if extra_info %}<span class="muted">{{extra_info}}</span>{% endif %}</h3>
+		{% include 'submission/entries_list.html' %}
+	</div><!--/span12-->
+</div><!--/search result-->
+{% endblock %}

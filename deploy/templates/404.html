@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Invalid item requested{% endblock %}
+
+{% block content %}
+<div class="hero-unit">
+	<h1>404</h1>
+	<p class="lead">The page you requested an invalid item, or an item that's not yet approved for display.</p>
+	
+	<br>
+	{% if extra_info %}<p> Additional information: <i>{{extra_info}}</i> </p>{% endif %}
+	
+	<br>
+	
+	<p>Try <a href="{% url “spc-main-page” %}">searching for it</a> on the main page.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "page-base.html" %}
+
+{% block title %}French Institute of Bioinformatics Journal{% endblock %}
+
+{% block pageContent %}
+
+<h2 style="font-weight: normal;"><b>Welcome.</b><br> BioPOL is a research journal of Bioinformatic Processing On Line. Each article contains a text on an algorithm and its source code, with an online demonstration facility and an archive of experiments. Text and source code are peer-reviewed and the demonstration is controlled. BioPOL is an Open Science and Reproducible Research journal. </a></h2><br><br>
+
+{% include "search/includes/main-search-box.html" %}
+	
+
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#recent" data-toggle="tab">Recently Changed</a></li>
+	<li><a href="#most" data-toggle="tab">Most Viewed</a></li>
+</ul>
+
+{% load core_tags %}
+<div class="tab-content">
+	<!--tab-pane active-->
+	<div class="tab-pane active" id="recent">
+		{% for entry in "submission.submission"|latest:10 %}
+		<ul class="media-list">
+			{% include 'search/includes/one-search-result.html' %}
+		</ul>
+		{% endfor %}
+		<div class="pagination pagination-small pagination-centered">
+			<ul><li><a href="{% url spc-show-items what_view="show" extra_info="all-revisions" %}">View all</a></li></ul>
+		</div>	
+	</div><!--/tab-pane active-->
+	
+	<div class="tab-pane" id="most">
+		{% for entry in "submission"|most_viewed:10 %}
+		{% with entry.last_revision as entry %}
+		<ul class="media-list">
+			{% include 'search/includes/one-search-result.html' %}
+		</ul>
+		{% endwith %}
+		{% endfor %}
+		<div class="pagination pagination-small pagination-centered">
+			<ul><li><a href="{% url spc-show-items what_view="sort" extra_info="most-viewed" %}">View all</a></li></ul>
+		</div>
+	</div><!--/tab pane-->	
+</div><!--/CONTENT-->
+{% endblock %}

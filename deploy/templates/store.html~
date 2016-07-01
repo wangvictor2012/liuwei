@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="row-fluid">
+		<div class="span9">
+			{% block paypalstd_test_buy %}{% endblock %}
+			{% include "buy.html" %}
+		</div><!--/span9-->
+		{% include "base-includes/rightsidebar.html" %}
+	</div><!--/row-fluid-->
+{% endblock %}

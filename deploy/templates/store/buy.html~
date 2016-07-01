@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Buy me something{% endblock %}
+
+{% block content %}
+
+<div class="row-fluid">
+	<div class="span9">
+		Bienvenue {{user.username}}
+		<form action="" method="post">
+		    <table>
+			{{ form.as_p }}
+			<tr>
+			    <td colspan="2" align="right">
+				<input type="submit"/>
+			    </td>
+			</tr>
+
+
+		    </table>
+		</form>
+		<!-- payment.html -->
+		...
+		<h1>Show me the money!</h1>
+		<!-- writes out the form tag automatically -->
+		{{ form.render }}
+
+	</div><!--/span9-->
+	{% include "base-includes/rightsidebar.html" %}
+</div><!--/row-fluid-->
+
+	<link rel="stylesheet" type="text/css" href="../{{STATIC_URL}}css/spc-bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="kiis/{{STATIC_URL}}css/spc-extend.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/pygments.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="{{JQUERYUI_CSS}}">
+	<script type="text/javascript" src="{{JQUERY_URL}}"></script>
+	<script type="text/javascript" src="{{JQUERYUI_URL}}"></script>
+
+{% endblock %}

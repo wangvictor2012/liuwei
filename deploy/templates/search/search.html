@@ -1,0 +1,15 @@
+{% extends "page-base.html" %}
+
+{% block title %}Search Results - IFB Journal Online {% endblock %}
+
+{% block pageContent %}
+	<h3 class="underline">Search Results</h3>
+	{% if query %}
+		{% with page as entries %}
+		{% include 'submission/entries_list.html' %}
+		{% endwith %}
+
+	{% else %}
+		{# Show some example queries to run, maybe advanced query syntax #}
+	{% endif %}
+{% endblock %}

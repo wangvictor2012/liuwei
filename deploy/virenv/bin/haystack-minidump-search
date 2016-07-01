@@ -1,0 +1,10 @@
+#!/home/liuwei/virenv/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'haystack==0.36','console_scripts','haystack-minidump-search'
+__requires__ = 'haystack==0.36'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('haystack==0.36', 'console_scripts', 'haystack-minidump-search')()
+    )

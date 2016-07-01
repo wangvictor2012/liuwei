@@ -1,0 +1,13 @@
+<!--url: registration_closed -->
+{% extends "base.html" %}
+
+{% block title %}No new accounts{% endblock %}
+
+{% block content %}
+<div class="lead">
+<p>New accounts are currently not permitted on <a href="{% url spc-main-page %}">IFB's publication</a></p>
+
+<p>Please read our <a href="{% url spc-about-page %}">About page</a> for more information</p>
+</div>
+{% endblock %}
+
